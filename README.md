@@ -2,7 +2,9 @@
 Open Spherical Camera API level 1 - simple python script to take and grab an image from a spherical camera (Samsung Gear 360 2016)
 
 By Bard Ove Myhr (baardove)
+
 https://www.facebook.com/baardove
+
 bard.myhr@gmail.com
 
 
@@ -31,6 +33,13 @@ Trouble shooting:
  takeAndGet2.py - a previous version that uses different approac to detect when the file is finished processing.
  takePicture.py - takes a pictures, but does not wait for it to be processed.
  getPicture.py - retrieves the latest processed image and stores it.
+ 
+ 
+ API:
+ 
+ The API can be found here
+ 
+ https://developers.google.com/streetview/open-spherical-camera/
  
  
  
