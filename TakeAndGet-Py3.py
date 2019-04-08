@@ -57,6 +57,25 @@ print ('Click!')
 
 # WAIT FOR LAST IMAGE TO CHANGE
 
+# IF YOU ARE USING PYTHON V.2
+"""
+sys.stdout.write('Waiting for image processing')
+sys.stdout.flush()
+
+for x in range(1, 30):
+    sys.stdout.write('.')
+    sys.stdout.flush()
+    data = {"id": pictureId } 
+    resp = requests.post(BASEURL + 'commands/status', json=data)
+    if format(resp.json()["state"])=='done': 
+        break
+    time.sleep(0.5)
+
+print ('')
+uri = resp.json()["results"]["fileUri"]
+#print ('uri: {}'.format(uri))
+"""
+
 sys.stdout.write('Waiting for image processing')
 sys.stdout.flush()
 
@@ -89,9 +108,20 @@ if resp.status_code != 200:
 
 # SAVE NEW IMAGE
 
+# IF YOU ARE USING PYTHON V.2
+"""
 resp.raw.decode_content = True
 
 with open(name,'w') as ofh:
+	for chunk in resp:
+            ofh.write(chunk)
+        
+print ('Image stored as: {}'.format(name))
+"""
+
+resp.raw.decode_content = True
+
+with open(name,'wb') as ofh:
 	for chunk in resp:
             ofh.write(chunk)
         
